@@ -51,6 +51,9 @@ iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
 
+# 访问外部的gitlab的40149端口
+iptables -A OUTPUT -p tcp --dport 40149 -j ACCEPT
+
 # DROP ALL
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
