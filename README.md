@@ -54,11 +54,15 @@ iptables -A OUTPUT -o lo -j ACCEPT
 # 访问外部的gitlab的40149端口
 iptables -A OUTPUT -p tcp --dport 40149 -j ACCEPT
 
-# 特定端口 开发服务
-iptables -A INPUT -p tcp  --dport 6666 -j ACCEPT
-iptables -A OUTPUT -p tcp --sport 6666 -j ACCEPT
-iptables -A OUTPUT -p tcp --dport 6666 -j ACCEPT
-iptables -A INPUT -p tcp  --sport 6666 -j ACCEPT
+# 特定端口 开发服务, e.g. 6868
+iptables -A INPUT -p tcp  --dport 6868 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 6868 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 6868 -j ACCEPT
+iptables -A INPUT -p tcp  --sport 6868 -j ACCEPT
+
+# snmp
+iptables -A INPUT -p udp -m udp --dport 161 -j ACCEPT
+iptables -A INPUT -p udp -m udp --dport 162 -j ACCEPT
 
 # DROP ALL
 iptables -P INPUT DROP
