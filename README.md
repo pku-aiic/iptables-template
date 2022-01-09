@@ -60,6 +60,16 @@ iptables -A OUTPUT -p tcp --sport 6868 -j ACCEPT
 iptables -A OUTPUT -p tcp --dport 6868 -j ACCEPT
 iptables -A INPUT -p tcp  --sport 6868 -j ACCEPT
 
+iptables -A INPUT -p tcp  --dport 8000 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 8000 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 8000 -j ACCEPT
+iptables -A INPUT -p tcp  --sport 8000 -j ACCEPT
+
+iptables -A INPUT -p tcp  --dport 50051 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 50051 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 50051 -j ACCEPT
+iptables -A INPUT -p tcp  --sport 50051 -j ACCEPT
+
 # 特定端口 range
 iptables -A INPUT  -p tcp --dport 6868:6900 -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 6868:6900 -j ACCEPT
